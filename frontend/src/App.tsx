@@ -1,12 +1,6 @@
-import React, { useState } from 'react';
-import ProductManagement from './ProductManagement';
+import React from 'react';
 
 function App() {
-  const [currentView, setCurrentView] = useState<'home' | 'products'>('home');
-
-  if (currentView === 'products') {
-    return <ProductManagement onBack={() => setCurrentView('home')} />;
-  }
   const containerStyle: React.CSSProperties = {
     margin: 0,
     padding: '40px',
@@ -45,23 +39,6 @@ function App() {
             🟢 Storefront Online
           </div>
           <p>Welcome to the galaxy's most secure shopping experience, protected by ion cannons and shield generators!</p>
-          <div style={{ marginTop: '20px' }}>
-            <button 
-              onClick={() => setCurrentView('products')}
-              style={{
-                background: '#3b82f6',
-                color: 'white',
-                border: 'none',
-                padding: '12px 24px',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                fontSize: '16px',
-                fontWeight: '500'
-              }}
-            >
-              📦 Manage Products
-            </button>
-          </div>
         </div>
 
         <div style={cardStyle}>
