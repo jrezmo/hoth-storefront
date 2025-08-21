@@ -1,12 +1,12 @@
 [build]
 builder = "nixpacks"
-buildCommand = "npm cache clean --force && npm install && npm run build"
+buildCommand = "npm install && npm run build"
 
 [deploy]
 startCommand = "npm start"
-healthcheckPath = "/api/health"
-healthcheckTimeout = 10
-healthcheckInterval = 60
+healthcheckPath = "/health"
+healthcheckTimeout = 60
+healthcheckInterval = 30
 
 [environments.production]
 NODE_ENV = "production"
