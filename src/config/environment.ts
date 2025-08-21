@@ -30,7 +30,7 @@ interface Config {
 
 export const config: Config = {
   nodeEnv: process.env.NODE_ENV || 'development',
-  port: parseInt(process.env.STOREFRONT_PORT || '8002', 10),
+  port: parseInt(process.env.PORT || process.env.STOREFRONT_PORT || '8002', 10),
   
   database: {
     url: process.env.STOREFRONT_DATABASE_URL,
