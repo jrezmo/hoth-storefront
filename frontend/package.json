@@ -2,6 +2,7 @@
   "name": "@hoth/storefront-frontend",
   "version": "1.0.0",
   "description": "Customer storefront React application",
+  "type": "module",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
