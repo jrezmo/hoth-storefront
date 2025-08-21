@@ -33,8 +33,8 @@ export const config: Config = {
   port: parseInt(process.env.PORT || process.env.STOREFRONT_PORT || '8002', 10),
   
   database: {
-    url: process.env.STOREFRONT_DATABASE_URL,
-    type: process.env.STOREFRONT_DATABASE_URL?.includes('postgresql') ? 'postgresql' : 'sqlite',
+    url: process.env.DATABASE_URL || process.env.STOREFRONT_DATABASE_URL,
+    type: (process.env.DATABASE_URL || process.env.STOREFRONT_DATABASE_URL)?.includes('postgresql') ? 'postgresql' : 'sqlite',
   },
   
   jwt: {
