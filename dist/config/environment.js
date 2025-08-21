@@ -13,10 +13,10 @@ const path_1 = __importDefault(require("path"));
 dotenv_1.default.config({ path: path_1.default.resolve(process.cwd(), '.env') });
 exports.config = {
     nodeEnv: process.env.NODE_ENV || 'development',
-    port: parseInt(process.env.STOREFRONT_PORT || '8002', 10),
+    port: parseInt(process.env.PORT || process.env.STOREFRONT_PORT || '8002', 10),
     database: {
-        url: process.env.STOREFRONT_DATABASE_URL,
-        type: process.env.STOREFRONT_DATABASE_URL?.includes('postgresql') ? 'postgresql' : 'sqlite',
+        url: process.env.DATABASE_URL || process.env.STOREFRONT_DATABASE_URL,
+        type: (process.env.DATABASE_URL || process.env.STOREFRONT_DATABASE_URL)?.includes('postgresql') ? 'postgresql' : 'sqlite',
     },
     jwt: {
         secret: process.env.STOREFRONT_JWT_SECRET || 'customer-jwt-secret',

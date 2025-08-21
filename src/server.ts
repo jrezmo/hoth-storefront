@@ -88,14 +88,14 @@ app.use((req, res, next) => {
 });
 
 // Check frontend files exist
-const frontendDistPath = path.join(__dirname, '../frontend/dist');
-const indexPath = path.join(__dirname, '../frontend/dist/index.html');
+const frontendBuildPath = path.join(__dirname, '../frontend/build');
+const indexPath = path.join(__dirname, '../frontend/build/index.html');
 
-console.log(`Checking frontend dist path: ${frontendDistPath}`);
-if (!fs.existsSync(frontendDistPath)) {
-  console.warn(`Frontend dist path does not exist: ${frontendDistPath}`);
+console.log(`Checking frontend build path: ${frontendBuildPath}`);
+if (!fs.existsSync(frontendBuildPath)) {
+  console.warn(`Frontend build path does not exist: ${frontendBuildPath}`);
 } else {
-  console.log('Frontend dist path exists');
+  console.log('Frontend build path exists');
 }
 
 console.log(`Checking index.html at: ${indexPath}`);
@@ -106,8 +106,8 @@ if (!fs.existsSync(indexPath)) {
 }
 
 // Serve static frontend files
-app.use('/static', express.static(path.join(__dirname, '../frontend/dist/static')));
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
+app.use('/static', express.static(path.join(__dirname, '../frontend/build/static')));
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 // Health check routes are defined earlier before middleware
 
@@ -120,7 +120,7 @@ console.log('API routes loaded');
 
 // Serve React app for all non-API routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+  res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
 });
 
 // Error handling
